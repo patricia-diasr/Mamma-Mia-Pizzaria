@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <section class="container">
+    <section class="container about">
         <h1 class="text-secondary text-center">Mamma Mia Pizzaria</h1>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius accusantium explicabo fugiat saepe, iure ea neque illo atque corrupti et dolor voluptatibus soluta iusto aliquid est possimus totam ullam hic.</p>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab qui aliquid praesentium porro aut, magni natus facere laboriosam doloribus. Alias laudantium doloribus aliquid soluta eveniet enim! Sed ab ad sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit laudantium facilis quidem consequuntur, ea quo nostrum non quam quas, maxime provident a corporis repudiandae sapiente expedita accusamus saepe officia.</p>
@@ -22,6 +22,23 @@
                 <img src="../../../assets/images/pizza.jpg" alt="Imagem 3" class="img-fluid p-5 blob3">
                 <h3>Valor 3</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione optio, eaque alias, quam numquam voluptati.</p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container-fluid divider"></div>
+<div class="container-fluid">
+    <section class="container menu">
+        <h2 class="text-secondary">Lorem Inpsum dolor</h2>
+        <div class="slider text-light">
+            <span class="prev" (click)="prevSlide()">
+                <i class="bi bi-chevron-left"></i>
+            </span>
+            <span class="next" (click)="nextSlide()">
+                <i class="bi bi-chevron-right"></i>
+            </span>
+            <div *ngFor="let item of visibleItems()" class="slider-item">
+                <span>{{ item }}</span>
             </div>
         </div>
     </section>
