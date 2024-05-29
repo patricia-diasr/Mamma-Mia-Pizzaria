@@ -46,10 +46,25 @@ p {
 }
 
 .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5.4em 0;
+
+    a {
+        font-size: 1.2em;
+        letter-spacing: 0.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .slider {
         display: flex;
         justify-content: space-between;
         position: relative;
+        width: 100%;
+        margin: 1.8em 0;
 
         .slider-item {
             background: url("../../../assets/images/pizza.jpg");
@@ -103,6 +118,11 @@ p {
     }
 }
 
+.reservation {
+    height: 70vh;
+    background: linear-gradient(rgba(242,167,75, .3), rgba(242,167,75, .3)), url("../../../assets/images/pattern.png") repeat;
+}
+
 @media (max-width: 992px) {
     .menu .slider .slider-item {
         width: 48%;
@@ -110,7 +130,16 @@ p {
 }
 
 @media (max-width: 768px) {
-    .menu .slider .slider-item {
-        width: 100%;
+    .menu {
+        justify-content: center;
+
+        a {
+            order: 1;
+            width: 80%;
+        }
+
+        .slider .slider-item {
+            width: 100%;
+        }
     }
 }
