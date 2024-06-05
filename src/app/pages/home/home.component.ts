@@ -9,7 +9,28 @@ import { Component, HostListener } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  items = ['item 1', 'item 2', 'item 3', 'item 4', 'item 5'];
+  items = [
+    {
+      name: "Pizzas",
+      image: "../../../assets/images/pizzas.jpg"
+    },
+    {
+      name: "Vinhos",
+      image: "../../../assets/images/vinhos.jpg"
+    },
+    {
+      name: "Sobremesas",
+      image: "../../../assets/images/sobremesas.jpg"
+    },
+    {
+      name: "Massas",
+      image: "../../../assets/images/massas.jpg"
+    },
+    {
+      name: "Entradas",
+      image: "../../../assets/images/entradas.jpg"
+    }
+  ];
   currentIndex = 0;
   visibleItemsCount!: number;
 

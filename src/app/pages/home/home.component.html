@@ -1,27 +1,27 @@
 <div class="container-fluid">
     <section class="container about">
         <h1 class="text-secondary text-center">Mamma Mia Pizzaria</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius accusantium explicabo fugiat saepe, iure ea neque illo atque corrupti et dolor voluptatibus soluta iusto aliquid est possimus totam ullam hic.</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab qui aliquid praesentium porro aut, magni natus facere laboriosam doloribus. Alias laudantium doloribus aliquid soluta eveniet enim! Sed ab ad sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit laudantium facilis quidem consequuntur, ea quo nostrum non quam quas, maxime provident a corporis repudiandae sapiente expedita accusamus saepe officia.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus eveniet sapiente architecto porro, optio neque, aliquam suscipit aspernatur libero vel sequi dolore voluptatem, voluptatum repellat atque corrupti quo quibusdam aperiam!</p>
-    
+        <p>Bem-vindo à Pizzaria Mamma Mia, onde a tradição italiana se encontra com o sabor contemporâneo. Desde a sua inauguração em 1999, nossa pizzaria tem sido um ponto de encontro para os amantes da boa comida e da atmosfera acolhedora.</p>
+        <p>Não se trata apenas de comida, mas de uma experiência. Na Pizzaria Mamma Mia, cada cliente é recebido como um membro da família. Estamos aqui para celebrar os momentos especiais da vida, seja uma reunião casual entre amigos ou uma comemoração familiar.</p>
+        <p>Junte-se a nós e descubra por que somos mais do que apenas uma pizzaria - somos uma tradição, um destino onde os sabores autênticos da Itália ganham vida em cada mordida.</p>
+
         <h2 class="text-secondary text-center">Nossos Valores</h2>
 
         <div class="row text-center">
             <div class="col-md-4 p-4">
-                <img src="../../../assets/images/pizza.jpg" alt="Imagem 3" class="img-fluid p-5 blob1">
-                <h3>Valor 1</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione optio, eaque alias, quam numquam voluptatibus earum totam.</p>
+                <img src="../../../assets/images/qualidade.jpg" alt="Imagem 3" class="img-fluid p-5 blob1">
+                <h3>Qualidade Superior</h3>
+                <p>Na Pizzaria Mamma Mia, buscamos a excelência em cada fatia. Utilizamos os melhores ingredientes e técnicas para garantir sabores autênticos.</p>
             </div>
             <div class="col-md-4 p-4">
-                <img src="../../../assets/images/pizza.jpg" alt="Imagem 3" class="img-fluid p-5 blob2">
-                <h3>Valor 2</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione optio, eaque alias, quam numquam voluptatibus earum totam maxime recusandae animi.</p>
+                <img src="../../../assets/images/atendimento.jpg" alt="Imagem 3" class="img-fluid p-5 blob2">
+                <h3>Serviço Excepcional</h3>
+                <p>Nossa equipe está aqui para tornar sua experiência memorável. Desde a entrada até a última mordida, oferecemos serviço caloroso e atencioso.</p>
             </div>
             <div class="col-md-4 p-4">
-                <img src="../../../assets/images/pizza.jpg" alt="Imagem 3" class="img-fluid p-5 blob3">
-                <h3>Valor 3</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ratione optio, eaque alias, quam numquam voluptati.</p>
+                <img src="../../../assets/images/inovacao.jpg" alt="Imagem 3" class="img-fluid p-5 blob3">
+                <h3>Inovação Criativa</h3>
+                <p>Buscamos constantemente surpreender nossos clientes. Nossa equipe de chefs está sempre criando novos sabores para você desfrutar.</p>
             </div>
         </div>
     </section>
@@ -29,7 +29,7 @@
 <div class="container-fluid divider"></div>
 <div class="container-fluid">
     <section class="container menu">
-        <h2 class="text-secondary m-0">Lorem Inpsum dolor</h2>
+        <h2 class="text-secondary m-0">Explore nossas delícias...</h2>
         <a class="btn bg-secondary text-light fw-bold rounded-pill px-4 py-2" href="#">VER CARDÁPIO</a>
         <div class="slider text-light">
             <span class="prev" (click)="prevSlide()">
@@ -38,15 +38,17 @@
             <span class="next" (click)="nextSlide()">
                 <i class="bi bi-chevron-right"></i>
             </span>
-            <div *ngFor="let item of visibleItems()" class="slider-item">
-                <span>{{ item }}</span>
+            <div *ngFor="let item of visibleItems()" class="slider-item"  [style.background]="'url(' + item.image + ')'">
+                <div class="filter">
+                    <span>{{ item.name }}</span>
+                </div>
             </div>
         </div>
     </section>
 </div>
 <section class="container-fluid reservation text-light text-center py-5">
     <span class="bi bi-calendar-check"></span>
-    <h2>Lorem impsum dolor</h2>
+    <h2>Aguardamos sua visita!</h2>
     <a class="btn text-light fw-bold rounded-pill px-4 py-2" href="#">FAÇA SUA RESERVA</a>
 </section>
 <div class="container-fluid">

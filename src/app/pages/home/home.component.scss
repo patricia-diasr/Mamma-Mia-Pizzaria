@@ -9,6 +9,8 @@ p {
 }
 
 .about {
+    padding: 0 0 5.4em 0;
+
     & > p {
         text-indent: 2em;
     }
@@ -70,29 +72,33 @@ p {
         margin: 1.8em 0;
 
         .slider-item {
-            background: url("../../../assets/images/pizza.jpg");
-            background-position: center;
-            background-size: cover;
+            background-position: center !important;
+            background-size: cover !important;
             height: 450px;
             width: 30%;
             border-radius: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            span {
-                font-family: "My Soul", cursive;
-                font-size: 2.2em;
+            .filter {
+                height: 450px;
+                width: 30%;
+                position: absolute;
+                top: 0;
+                z-index: 2;
+                background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));
+                border-radius: 45px;
+                align-items: center;
+                justify-content: center;
                 display: none;
+
+                span {
+                    font-family: "My Soul", cursive;
+                    font-size: 2.2em;
+                }
             }
 
             &:hover {
-                background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url("../../../assets/images/pizza.jpg");
-                background-position: center;
-                background-size: cover;
-
-                span {
-                    display: block;
+                .filter {
+                    display: flex;
                 }
             }
         }
