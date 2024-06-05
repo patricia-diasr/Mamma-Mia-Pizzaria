@@ -1,0 +1,38 @@
+footer {
+    margin-top: 5.4em;
+    border-radius: 5em 5em 0 0;
+    color: #fbfbfb;
+
+    ul {
+        li {
+            background-color: transparent;
+            list-style: none;
+        }
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fbfbfb;
+
+        span {
+            background: #BF3617;
+            padding: .45em;
+            margin-right: .6em;
+        }
+
+        &:hover span {
+            background: #222326;
+        }
+    }
+    
+}
+
+@media (max-width: 576px) {
+    footer {
+        border-radius: 2em 2em 0 0;
+    }
+}

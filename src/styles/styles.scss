@@ -10,4 +10,15 @@ $light: #fbfbfb;
     font-family: "Questrial", sans-serif;
 }
 
+::selection {
+    background-color: #8C0712;
+    color: #fbfbfb;
+}
+
+::-moz-selection {
+    background-color: #8C0712;
+    color: #fbfbfb;
+}
+
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
