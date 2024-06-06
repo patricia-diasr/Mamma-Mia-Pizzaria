@@ -1,0 +1,115 @@
+h1, h2 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 1.8em 0 .6em 0;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.3em;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5.4em 0;
+
+    a {
+        font-size: 1.2em;
+        letter-spacing: 0.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: #F2A74B !important;
+        }
+    }
+
+    .slider {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        margin: 1.8em 0;
+
+        .slider-item {
+            background-position: center !important;
+            background-size: cover !important;
+            height: 450px;
+            width: 30%;
+            border-radius: 45px;
+
+            .filter {
+                height: 450px;
+                width: 30%;
+                position: absolute;
+                top: 0;
+                z-index: 2;
+                background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));
+                border-radius: 45px;
+                align-items: center;
+                justify-content: center;
+                display: none;
+
+                span {
+                    font-family: "My Soul", cursive;
+                    font-size: 2.2em;
+                }
+            }
+
+            &:hover {
+                .filter {
+                    display: flex;
+                }
+            }
+        }
+
+        .prev, .next {
+            font-size: 1.5em;
+            position: absolute;
+            z-index: 3;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            &:hover {
+                background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));
+            }
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 45px 0 0 45px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 0 45px 45px 0;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .menu {
+        justify-content: center;
+
+        a {
+            order: 1;
+            width: 80%;
+        }
+
+        .slider .slider-item {
+            width: 100%;
+
+            .filter {
+                width: 100%;
+            }
+        }
+    }
+}

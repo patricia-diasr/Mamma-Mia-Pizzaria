@@ -1,32 +1,33 @@
 <header class="container-fluid text-light">
-    <video autoplay loop muted plays-inline class="video-background">
+    <video autoplay loop muted plays-inline class="video-background" aria-label="Vídeo de um forno a lenha assando uma pizza">
         <source src="../../../assets/videos/video1.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
     </video>
     <div class="container d-flex justify-content-between py-4">
-        <a class="navbar-brand d-flex align-items-center logo" href="#">
+        <a class="navbar-brand d-flex align-items-center logo" routerLink="/home">
             <img src="../../../assets/images/logo.png" alt="Logo Mamma Mia Pizzaria" class="me-2">
             <div class="ms-2 d-none d-sm-block">
                 <span class="d-block fw-bold fs-3 title">Mamma Mia</span>
-                <span class="d-block subtitle text-center">PIZZARIA</span>
+                <span class="d-block subtitle text-center text-uppercase">Pizzaria</span>
             </div>
         </a>
-        <nav class="navbar navbar-dark navbar-expand-lg text-uppercase">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <nav class="navbar navbar-dark navbar-expand-lg text-uppercase" aria-label="Menu de navegação principal">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Abrir menu de navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Sobre Nós</a>
+                        <a class="nav-link text-light" routerLink="/home" routerLinkActive="active">Sobre Nós</a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a class="nav-link text-light" href="#">Cardápio</a>
+                        <a class="nav-link text-light" routerLink="/cardapio" routerLinkActive="active">Cardápio</a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a class="nav-link text-light"href="#">Faça sua Reserva</a>
+                        <a class="nav-link text-light" routerLink="/reserva" routerLinkActive="active">Faça sua Reserva</a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a class="nav-link text-light" href="#">Fale conosco</a>
+                        <a class="nav-link text-light" routerLink="/fila" routerLinkActive="active">Fila Virtual</a>
                     </li>
                 </ul>
             </div>
@@ -34,25 +35,25 @@
     </div>
 </header>
 
-<div class="offcanvas offcanvas-end bg-primary text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+<nav class="offcanvas offcanvas-end bg-primary text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" aria-label="Menu lateral">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-5">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Sobre Nós</a>
+                <a class="nav-link" routerLink="/home" routerLinkActive="active">Sobre Nós</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cardápio</a>
+                <a class="nav-link" routerLink="/cardapio" routerLinkActive="active">Cardápio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Faça sua Reserva</a>
+                <a class="nav-link" routerLink="/reserva" routerLinkActive="active">Faça sua Reserva</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Fale conosco</a>
+                <a class="nav-link" routerLink="/fila" routerLinkActive="active">Fila Virtual</a>
             </li>
         </ul>
     </div>
-</div>
+</nav>

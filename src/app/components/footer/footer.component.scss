@@ -16,18 +16,19 @@ footer {
         font-size: 1.1em;
     }
 
-    a {
+    a, span {
         text-decoration: none;
         color: #fbfbfb;
         font-size: 1em;
+        cursor: pointer;
 
-        span {
+        .bi {
             background: #BF3617;
             padding: .45em;
             margin-right: .6em;
         }
 
-        &:hover span {
+        &:hover .bi {
             background: #222326;
         }
     }
@@ -38,12 +39,12 @@ footer {
     footer {
         border-radius: 2em 2em 0 0;
 
-        a {
+        a, span {
             font-size: .8em;
+        }
 
-            span {
-                margin-right: .2em;
-            }
+        .bi {
+            margin-right: .1em;
         }
     }
 }
