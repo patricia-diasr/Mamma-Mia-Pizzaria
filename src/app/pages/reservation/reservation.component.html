@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <section class="container reservation">
+        <h1 class="text-secondary text-center">Faça sua Reserva</h1>
+        <form class="row g-3">
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Nome">
+                    <label for="name">Nome</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="phone" placeholder="Telefone">
+                    <label for="phone">Telefone</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="peopleNumber" placeholder="Quantidade de Pessoas">
+                    <label for="peopleNumber">Quantidade de Pessoas</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="date" placeholder="Data">
+                    <label for="date">Data</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="time" aria-label="Seleção de horário da reserva">
+                        <option selected>Selecionar horário</option>
+                        <option value="3">19:00</option>
+                        <option value="4">19:30</option>
+                        <option value="5">20:00</option>
+                        <option value="3">20:30</option>
+                        <option value="4">21:00</option>
+                        <option value="5">21:30</option>
+                        <option value="3">22:00</option>
+                        <option value="4">22:30</option>
+                        <option value="5">23:00</option>
+                    </select>
+                    <label for="time">Horário</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="message" style="height: 100px" placeholder="Mensagem"></textarea>
+                    <label for="message">Observações</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-secondary fs-5">Enviar</button>
+            </div>
+        </form>   
+    </section>
+</div>
