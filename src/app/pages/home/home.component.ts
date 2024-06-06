@@ -44,10 +44,8 @@ export class HomeComponent {
   }
 
   private updateVisibleItemsCount(windowWidth: number) {
-    if (windowWidth < 768) {
+    if (windowWidth < 992) {
       this.visibleItemsCount = 1;
-    } else if (windowWidth < 992) {
-      this.visibleItemsCount = 2;
     } else {
       this.visibleItemsCount = 3;
     }

@@ -4,6 +4,11 @@ h1, h2 {
     margin: 1.8em 0 .6em 0;
 }
 
+h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
 p {
     font-size: 1.3em;
 }
@@ -106,6 +111,7 @@ p {
         .prev, .next {
             font-size: 1.5em;
             position: absolute;
+            z-index: 3;
             height: 450px;
             display: flex;
             align-items: center;
@@ -153,12 +159,6 @@ p {
 }
 
 @media (max-width: 992px) {
-    .menu .slider .slider-item {
-        width: 48%;
-    }
-}
-
-@media (max-width: 768px) {
     .menu {
         justify-content: center;
 
@@ -169,6 +169,10 @@ p {
 
         .slider .slider-item {
             width: 100%;
+
+            .filter {
+                width: 100%;
+            }
         }
     }
 }

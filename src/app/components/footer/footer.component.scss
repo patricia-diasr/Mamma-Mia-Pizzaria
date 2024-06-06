@@ -19,6 +19,7 @@ footer {
     a {
         text-decoration: none;
         color: #fbfbfb;
+        font-size: 1em;
 
         span {
             background: #BF3617;
@@ -36,5 +37,13 @@ footer {
 @media (max-width: 576px) {
     footer {
         border-radius: 2em 2em 0 0;
+
+        a {
+            font-size: .8em;
+
+            span {
+                margin-right: .2em;
+            }
+        }
     }
 }
