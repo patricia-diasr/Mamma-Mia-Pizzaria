@@ -1,0 +1,33 @@
+
+.menu {
+    h1 {
+        font-size: 3em;
+        font-weight: bold;
+        margin: 1.8em 0 .6em 0;
+    }
+        
+    h2 {
+        margin-bottom: .6em;
+        font-size: 3em;
+        font-weight: bold;
+        font-family: "My Soul", cursive;
+    }
+    
+    .line {
+        padding: 3.6em 0 1.8em 0;
+        max-width: 70vw;
+    }
+    
+    .menu-items {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.footer-background {
+    background: #222326;
+    height: 6em;
+    position: absolute;
+    z-index: -1;
+}
