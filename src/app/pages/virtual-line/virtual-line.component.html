@@ -1,1 +1,36 @@
-<p>Página ainda não implementada</p>
+<div class="container-fluid">
+    <section class="container about pb-5">
+        <h1 class="text-secondary text-center">Fila Virtual</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, accusantium adipisci necessitatibus ullam earum ut animi hic nostrum corporis, ea a aliquam, corrupti ab. Adipisci distinctio iste ut ex culpa.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, accusantium adipisci necessitatibus ullam earum ut animi hic nostrum corporis, ea a aliquam, corrupti ab. Adipisci distinctio iste ut ex culpa.</p>
+    </section>
+
+    <section class="container check-waiting-time pb-5">
+        <h2 class="text-secondary text-center">Consultar Tempo de Espera</h2>
+        <form class="row g-3">
+            <div class="col-md-12">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="peopleNumber" placeholder="Quantidade de Pessoas">
+                    <label for="peopleNumber">Quantidade de Pessoas</label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="time" aria-label="Seleção de horário da reserva">
+                        <option value="none" selected>Nenhuma</option>
+                        <option value="pcd">Pessoa com Deficiência</option>
+                        <option value="idoso">Pessoa Idosa</option>
+                    </select>
+                    <label for="time">Prioridade</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-secondary fs-5">Consultar</button>
+            </div>
+        </form>   
+    </section>
+
+    <section *ngIf="showWaitingTime" class="container check-waiting-time pb-5">
+        <app-waiting-time [showCallToAction]="true"></app-waiting-time>
+    </section>
+</div>
