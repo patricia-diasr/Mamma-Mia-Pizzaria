@@ -1,9 +1,4 @@
 .card-menu-item {
-    width: 300px;
-    max-width: 70vw;
-    margin: .8em;
-    cursor: pointer;
-
     .image-container {
         background: transparent;
         text-align: center;
@@ -16,7 +11,7 @@
         }
 
         .half-background {
-            background: #18191C;
+            background: #8C0712;
             width: 100%;
             height: 60%;
             border-radius: 2em 2em 0 0;
@@ -29,10 +24,11 @@
     .card-content {
         padding: 1.5em;
         border-radius: 0 0 2em 2em;
-        background: #18191C;
+        background: #8C0712;
 
         h3 {
             font-size: 1.5em;
+            font-weight: bold;
         }
 
         .price {
@@ -41,11 +37,31 @@
             font-weight: 100;
         }
     }
+}
 
-    &:hover {
-        .image-container .half-background, .card-content {
-            background: #8C0712;
+@media (max-width: 576px) {
+    .card-menu-item {
+    
+        .image-container {
+    
+            img {
+                width: 50%;
+            }
+    
+        }
+    
+        .card-content {
+            padding: .5em;
+    
+            h3 {
+                font-size: 1.3em;
+            }
+    
+            .price {
+                font-size: 1.2em;
+                color: #F2A74B;
+                font-weight: 100;
+            }
         }
     }
 }
-

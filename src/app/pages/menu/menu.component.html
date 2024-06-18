@@ -5,15 +5,7 @@
             <img class="line" src="../../../assets/images/decorative-line.png" alt="">
             <h2>Pizzas</h2>
             <div class="menu-items">
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
+                <app-menu-item-card *ngFor="let item of pizzaItems" [item]="item" data-bs-toggle="modal" data-bs-target="#modalItemDetail"></app-menu-item-card>
             </div>
         </section>
         <section>
@@ -61,5 +53,7 @@
         </section>
     </div>
 </div>
+
+<app-menu-item-detail [item]="itemDetail"></app-menu-item-detail>
 
 <div class="footer-background container-fluid"></div>
