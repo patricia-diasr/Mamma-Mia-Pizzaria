@@ -16,42 +16,129 @@ import { MenuItemDetailComponent } from "./menu-item-detail/menu-item-detail.com
     ]
 })
 export class MenuComponent {
-    pizzaItems: Item[] = [
+    pizzas: Item[] = [
         {
             name: "Nome do Produto",
             price: 10,
             description: "Descrição do Produto",
-            image: "Imagem do Produto"
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
         },
         {
             name: "Nome do Produto",
             price: 10,
             description: "Descrição do Produto",
-            image: "Imagem do Produto"
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
         },
         {
             name: "Nome do Produto",
             price: 10,
             description: "Descrição do Produto",
-            image: "Imagem do Produto"
-        },
-        {
-            name: "Nome do Produto",
-            price: 10,
-            description: "Descrição do Produto",
-            image: "Imagem do Produto"
-        },
-        {
-            name: "Nome do Produto",
-            price: 10,
-            description: "Descrição do Produto",
-            image: "Imagem do Produto"
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
         },
     ];
 
-    itemDetail: Item | undefined;
+    pastas: Item[] = [
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+    ];
 
-    openItem(item: Item) {
+    appetizers: Item[] = [
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+    ];
+
+    desserts: Item[] = [
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+    ];
+
+    drinks: Item[] = [
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+        {
+            name: "Nome do Produto",
+            price: 10,
+            description: "Descrição do Produto",
+            image: "../../../../assets/images/pizza-menu-item.png",
+            imageDescription: "Descrição da Imagem"
+        },
+    ];
+
+    itemDetail!: Item;
+
+    openItem(item: Item): void {
         this.itemDetail = item;
     }
 }

@@ -1,10 +1,10 @@
-<div class="card-menu-item text-light text-center">
+<div class="card-menu-item text-light text-center" tabindex="0">
     <div class="image-container">
-        <img src="../../../../assets/images/pizza-menu-item.png" alt="Imagem de uma pizza">
+        <img src="{{ item.image }}" alt="{{ item.imageDescription }}">
         <div class="half-background"></div>
     </div>
     <div class="card-content">
-        <h3>Nome do Produto</h3>
-        <p class="price">R$ 50,00</p>
+        <h3>{{ item.name }}</h3>
+        <p class="price">{{ item.price | currency }}</p>
     </div>
 </div>

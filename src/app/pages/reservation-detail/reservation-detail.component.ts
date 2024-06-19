@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class ReservationDetailComponent {
   isEditing: boolean = false;
 
-  toggleEdit() {
+  toggleEdit(): void {
     this.isEditing = !this.isEditing;
   }
 }

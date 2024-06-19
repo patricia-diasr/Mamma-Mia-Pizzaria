@@ -1,22 +1,16 @@
-$primary: #222326;
-$secondary: #8C0712;
-$tertiar: #3E5902;
-$quaternary: #F2A74B;
-$quinary: #BF3617;
-$dark: #111111;
-$light: #fbfbfb;
+@import "./theme";
 
 * {
     font-family: "Questrial", sans-serif;
 }
 
 ::selection {
-    background-color: #8C0712;
+    background-color: $secondary;
     color: #fbfbfb;
 }
 
 ::-moz-selection {
-    background-color: #8C0712;
+    background-color: $secondary;
     color: #fbfbfb;
 }
 

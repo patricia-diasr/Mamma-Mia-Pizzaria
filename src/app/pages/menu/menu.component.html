@@ -5,50 +5,35 @@
             <img class="line" src="../../../assets/images/decorative-line.png" alt="">
             <h2>Pizzas</h2>
             <div class="menu-items">
-                <app-menu-item-card *ngFor="let item of pizzaItems" [item]="item" data-bs-toggle="modal" data-bs-target="#modalItemDetail"></app-menu-item-card>
+                <app-menu-item-card *ngFor="let item of pizzas" [item]="item" (click)="openItem(item)" data-bs-toggle="modal" data-bs-target="#modalItemDetail" aria-haspopup="dialog"></app-menu-item-card>
             </div>
         </section>
         <section>
             <img class="line" src="../../../assets/images/decorative-line.png" alt="">
             <h2>Massas</h2>
             <div class="menu-items">
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
+                <app-menu-item-card *ngFor="let item of pastas" [item]="item" (click)="openItem(item)" data-bs-toggle="modal" data-bs-target="#modalItemDetail" aria-haspopup="dialog"></app-menu-item-card>
             </div>
         </section>
         <section>
             <img class="line" src="../../../assets/images/decorative-line.png" alt="">
             <h2>Entradas</h2>
             <div class="menu-items">
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
+                <app-menu-item-card *ngFor="let item of appetizers" [item]="item" (click)="openItem(item)" data-bs-toggle="modal" data-bs-target="#modalItemDetail" aria-haspopup="dialog"></app-menu-item-card>
             </div>
         </section>
         <section>
             <img class="line" src="../../../assets/images/decorative-line.png" alt="">
             <h2>Sobremesas</h2>
             <div class="menu-items">
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
+                <app-menu-item-card *ngFor="let item of desserts" [item]="item" (click)="openItem(item)" data-bs-toggle="modal" data-bs-target="#modalItemDetail" aria-haspopup="dialog"></app-menu-item-card>
             </div>
         </section>
         <section>
             <img class="line" src="../../../assets/images/decorative-line.png" alt="">
             <h2>Bebidas</h2>
             <div class="menu-items">
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>                
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
-                <app-menu-item-card></app-menu-item-card>
+                <app-menu-item-card *ngFor="let item of drinks" [item]="item" (click)="openItem(item)" data-bs-toggle="modal" data-bs-target="#modalItemDetail" aria-haspopup="dialog"></app-menu-item-card>
             </div>
         </section>
     </div>

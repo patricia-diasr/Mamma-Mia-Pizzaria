@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-  items = [
+  items: {name: string; image: string; description: string }[] = [
     {
       name: "Pizzas",
       image: "../../../assets/images/pizzas.jpg",
@@ -37,8 +37,9 @@ export class MenuComponent {
       description: "Card com a imagem de um prato com aperitivos de torradas"
     }
   ];
-  currentIndex = 0;
-  visibleItemsCount!: number;
+
+  currentIndex: number = 0;
+  visibleItemsCount: number = 3;
 
   constructor() {
     this.updateVisibleItemsCount(window.innerWidth);
@@ -57,8 +58,7 @@ export class MenuComponent {
     }
   }
 
-
-  nextSlide() {
+  nextSlide(): void {
     if (this.currentIndex < this.items.length) {
       this.currentIndex++;
     } else {
@@ -66,7 +66,7 @@ export class MenuComponent {
     }
   }
 
-  prevSlide() {
+  prevSlide(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;
     } else {
@@ -74,7 +74,7 @@ export class MenuComponent {
     }
   }
 
-  visibleItems(){
+  visibleItems(): { name: string; image: string; description: string }[] {
     const itemsToShow = [];
     const currentIndex = this.currentIndex;
     for (let i = 0; i < this.visibleItemsCount; i++) {

@@ -12,5 +12,5 @@ import { Item } from '../../../interfaces/Item';
   styleUrl: './menu-item-card.component.scss'
 })
 export class MenuItemCardComponent {
-  @Input() item: Item | undefined;
+  @Input() item!: Item;
 }
