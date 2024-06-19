@@ -1,3 +1,5 @@
+@import "../../../../styles/theme";
+
 h2 {
     font-size: 3em;
     font-weight: bold;
@@ -6,7 +8,7 @@ h2 {
 
 .reservation {
     background: linear-gradient(rgba(242,167,75, .65), rgba(242,167,75, .65)), url("../../../../assets/images/pattern.png") center repeat;
-    text-shadow: 1px 1px 5px #8C0712;
+    text-shadow: 1px 1px 5px $secondary;
 
     span {
         font-size: 3.5em;
@@ -19,12 +21,12 @@ h2 {
     a {
         font-size: 1.9em;
         letter-spacing: 0.2em;
-        background: #8C0712;
-        border: 4px solid #8C0712;
+        background: $secondary;
+        border: 4px solid $secondary;
         
         &:hover {
             background: transparent;
-            border: 4px solid #fbfbfb;
+            border: 4px solid $light;
         }
     }
 }

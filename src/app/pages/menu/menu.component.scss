@@ -1,3 +1,4 @@
+@import "../../../styles/theme";
 
 .menu {
     h1 {
@@ -26,7 +27,7 @@
 }
 
 .footer-background {
-    background: #222326;
+    background: $primary;
     height: 6em;
     position: absolute;
     z-index: -1;

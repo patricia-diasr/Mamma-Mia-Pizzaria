@@ -6,12 +6,12 @@
 
 ::selection {
     background-color: $secondary;
-    color: #fbfbfb;
+    color: $light;
 }
 
 ::-moz-selection {
     background-color: $secondary;
-    color: #fbfbfb;
+    color: $light;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";

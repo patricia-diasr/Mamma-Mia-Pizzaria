@@ -1,3 +1,5 @@
+@import "../../../../styles/theme";
+
 .card-menu-item {
     width: 300px;
     max-width: 70vw;
@@ -37,14 +39,14 @@
 
         .price {
             font-size: 1.4em;
-            color: #F2A74B;
+            color: $tertiary;
             font-weight: 100;
         }
     }
 
     &:hover {
         .image-container .half-background, .card-content {
-            background: #8C0712;
+            background: $secondary;
         }
     }
 }

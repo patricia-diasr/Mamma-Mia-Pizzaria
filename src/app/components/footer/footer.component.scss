@@ -1,6 +1,8 @@
+@import "../../../styles/theme";
+
 footer {
     border-radius: 5em 5em 0 0;
-    color: #fbfbfb;
+    color: $light;
 
     ul {
         padding: 0;
@@ -17,18 +19,18 @@ footer {
 
     a, span {
         text-decoration: none;
-        color: #fbfbfb;
+        color: $light;
         font-size: 1em;
         cursor: pointer;
 
         .bi {
-            background: #BF3617;
+            background: $quaternary;
             padding: .45em;
             margin-right: .6em;
         }
 
         &:hover .bi {
-            background: #222326;
+            background: $primary;
         }
     }
     
