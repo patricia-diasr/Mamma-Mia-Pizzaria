@@ -1,58 +1,181 @@
-<form class="row g-3">
+<form class="row g-3"  [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
     <div class="col-12">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="name" placeholder="Nome">
+            <input 
+                type="text"
+                class="form-control"
+                id="name" placeholder="Nome"
+                formControlName="name"
+                [ngClass]="{ 'is-invalid': f['name'].errors && f['name'].touched }"
+            >
             <label for="name">Nome</label>
+            @if (f["name"].errors && f["name"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["name"].errors["required"]) {
+                        <div>O nome é obrigatório</div>
+                    }
+                    @if (f["name"].errors["minlength"]) {
+                        <div>O nome precisa ter no mínimo 8 caracteres</div>
+                    }
+                    @if (f["name"].errors["maxlength"]) {
+                        <div>O nome precisa ter no máximo 40 caracteres</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-12">
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" placeholder="Email">
+            <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': f['email'].errors && f['email'].touched }"
+            >
             <label for="email">Email</label>
+            @if (f["email"].errors && f["email"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["email"].errors["required"]) {
+                        <div>O e-mail é obrigatório</div>
+                    }
+                    @if (f["email"].errors["email"]) {
+                        <div>Insira um e-mail válido</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="phone" placeholder="Telefone">
+            <input
+                type="text"
+                class="form-control"
+                id="phone"
+                placeholder="Telefone"
+                formControlName="phone"
+                [ngClass]="{ 'is-invalid': f['phone'].errors && f['phone'].touched }"
+            >
             <label for="phone">Telefone</label>
+            @if (f["phone"].errors && f["phone"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["phone"].errors["required"]) {
+                        <div>O telefone é obrigatório</div>
+                    }
+                    @if (f["phone"].errors["pattern"]) {
+                        <div>Insira um telefone válido.</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="peopleNumber" placeholder="Quantidade de Pessoas">
+            <input 
+                type="number"
+                class="form-control"
+                id="peopleNumber"
+                placeholder="Quantidade de Pessoas"
+                formControlName="peopleNumber"
+                min="1"
+                max="20"
+                [ngClass]="{ 'is-invalid': f['peopleNumber'].errors && f['peopleNumber'].touched }"
+            >
             <label for="peopleNumber">Quantidade de Pessoas</label>
+            @if (f["peopleNumber"].errors && f["peopleNumber"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["peopleNumber"].errors["required"]) {
+                        <div>O número de pessoas é obrigatório</div>
+                    }
+                    @if (f["peopleNumber"].errors["invalidRange"]) {
+                        <div>O número de pessoas deve ser um número entre 1 e 20</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="date" placeholder="Data">
+            <input
+                type="date"
+                class="form-control"
+                id="date"
+                placeholder="Data"
+                formControlName="date"
+                min="{{ tomorrow }}"
+                [ngClass]="{ 'is-invalid': f['date'].errors && f['date'].touched }"
+            >
             <label for="date">Data</label>
+            @if (f["date"].errors && f["date"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["date"].errors["required"]) {
+                        <div>A data é obrigatória</div>
+                    }
+                    @if (f["date"].errors["invalidDate"]) {
+                        <div>Insira uma data válida</div>
+                    }
+                    @if (f["date"].errors["dateNotInFuture"]) {
+                        <div>A data deve ser posterior a de hoje</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-floating mb-3">
-            <select class="form-select" id="time" aria-label="Seleção de horário da reserva">
-                <option selected>Selecionar horário</option>
-                <option value="3">19:00</option>
-                <option value="4">19:30</option>
-                <option value="5">20:00</option>
-                <option value="3">20:30</option>
-                <option value="4">21:00</option>
-                <option value="5">21:30</option>
-                <option value="3">22:00</option>
-                <option value="4">22:30</option>
-                <option value="5">23:00</option>
+            <select
+                class="form-select"
+                id="time"
+                aria-label="Seleção de horário da reserva"
+                formControlName="time"
+                [ngClass]="{ 'is-invalid': f['time'].errors && f['time'].touched }"
+            >
+                <option value="select" selected>Selecionar horário</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option>
             </select>
             <label for="time">Horário</label>
+            @if (f["time"].errors && f["time"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["time"].errors["required"]) {
+                        <div>O horário é obrigatório</div>
+                    }
+                    @if (f["time"].errors["pattern"]) {
+                        <div>O horário deve ser um dos disponíveis</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-12">
         <div class="form-floating mb-3">
-            <textarea class="form-control" id="message" style="height: 100px" placeholder="Mensagem"></textarea>
-            <label for="message">Observações</label>
+            <textarea
+                class="form-control"
+                id="description"
+                style="height: 100px"
+                placeholder="Observações"
+                formControlName="description"
+                [ngClass]="{ 'is-invalid': f['description'].errors && f['description'].touched }"
+            ></textarea>
+            <label for="description">Observações</label>
+            @if (f["description"].errors && f["description"].touched) {
+                <div class="invalid-feedback">
+                    @if (f["description"].errors["maxlength"]) {
+                        <div>O nome precisa ter no máximo 250 caracteres</div>
+                    }
+                </div>
+            }
         </div>
     </div>
     <div class="col-12">
-        <button type="submit" class="btn btn-secondary fs-5">Enviar</button>
+        <button type="submit" [disabled]="!reservationForm.valid" class="btn btn-secondary fs-5">Enviar</button>
     </div>
 </form>   
