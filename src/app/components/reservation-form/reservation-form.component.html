@@ -1,10 +1,11 @@
-<form class="row g-3"  [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+<form class="row g-3" [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
     <div class="col-12">
         <div class="form-floating mb-3">
             <input 
                 type="text"
                 class="form-control"
-                id="name" placeholder="Nome"
+                id="name" 
+                placeholder="Nome"
                 formControlName="name"
                 [ngClass]="{ 'is-invalid': f['name'].errors && f['name'].touched }"
             >
@@ -169,7 +170,7 @@
             @if (f["description"].errors && f["description"].touched) {
                 <div class="invalid-feedback">
                     @if (f["description"].errors["maxlength"]) {
-                        <div>O nome precisa ter no máximo 250 caracteres</div>
+                        <div>As observações precisam ter no máximo 300 caracteres</div>
                     }
                 </div>
             }

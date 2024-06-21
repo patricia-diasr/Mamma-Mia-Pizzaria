@@ -64,7 +64,7 @@ export class ReservationFormComponent {
     description: new FormControl(
       '', 
       [
-        Validators.maxLength(250)
+        Validators.maxLength(300)
       ]
     ),
   });

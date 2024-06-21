@@ -1,46 +1,130 @@
 <div class="container-fluid">
     <section class="container contact pb-5">
         <h2 class="text-secondary">Fale Conosco</h2>
-        <form class="row g-3">
+        <form class="row g-3" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="col-12">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Nome">
+                    <input 
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Nome"
+                        formControlName="name"
+                        [ngClass]="{ 'is-invalid': f['name'].errors && f['name'].touched }"
+                    >
                     <label for="name">Nome</label>
+                    @if (f["name"].errors && f["name"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["name"].errors["required"]) {
+                                <div>O nome é obrigatório</div>
+                            }
+                            @if (f["name"].errors["minlength"]) {
+                                <div>O nome precisa ter no mínimo 8 caracteres</div>
+                            }
+                            @if (f["name"].errors["maxlength"]) {
+                                <div>O nome precisa ter no máximo 40 caracteres</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Email"
+                        formControlName="email"
+                        [ngClass]="{ 'is-invalid': f['email'].errors && f['email'].touched }"
+                    >
                     <label for="email">Email</label>
+                    @if (f["email"].errors && f["email"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["email"].errors["required"]) {
+                                <div>O e-mail é obrigatório</div>
+                            }
+                            @if (f["email"].errors["email"]) {
+                                <div>Insira um e-mail válido</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="phone" placeholder="Telefone">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        placeholder="Telefone"
+                        formControlName="phone"
+                        [ngClass]="{ 'is-invalid': f['phone'].errors && f['phone'].touched }"
+                    >
                     <label for="phone">Telefone</label>
+                    @if (f["phone"].errors && f["phone"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["phone"].errors["required"]) {
+                                <div>O telefone é obrigatório</div>
+                            }
+                            @if (f["phone"].errors["pattern"]) {
+                                <div>Insira um telefone válido.</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="subject" aria-label="Seleção de assunto da mensagem">
-                        <option selected>Selecionar</option>
-                        <option value="1">Evento</option>
-                        <option value="2">Dúvida</option>
-                        <option value="3">Sugestão</option>
-                        <option value="4">Trabalhe Conosco</option>
-                        <option value="5">Outro</option>
+                    <select
+                        class="form-select"
+                        id="subject"
+                        aria-label="Seleção de assunto da mensagem"
+                        formControlName="subject"
+                        [ngClass]="{ 'is-invalid': f['subject'].errors && f['subject'].touched }"
+                    >
+                        <option value="select" selected>Selecionar</option>
+                        <option value="evento">Evento</option>
+                        <option value="duvida">Dúvida</option>
+                        <option value="sugestao">Sugestão</option>
+                        <option value="trabalhe-conosco">Trabalhe Conosco</option>
+                        <option value="outro">Outro</option>
                     </select>
                     <label for="subject">Assunto</label>
+                    @if (f["subject"].errors && f["subject"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["subject"].errors["required"]) {
+                                <div>O assunto é obrigatório</div>
+                            }
+                            @if (f["subject"].errors["pattern"]) {
+                                <div>O assunto deve ser um dos disponíveis</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" id="message" style="height: 100px" placeholder="Mensagem"></textarea>
-                    <label for="message">Mensagem</label>
+                    <textarea
+                        class="form-control"
+                        id="description"
+                        style="height: 100px"
+                        placeholder="Observações"
+                        formControlName="description"
+                        [ngClass]="{ 'is-invalid': f['description'].errors && f['description'].touched }"
+                    ></textarea>
+                    <label for="description">Observações</label>
+                    @if (f["description"].errors && f["description"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["description"].errors["maxlength"]) {
+                                <div>As observações precisam ter no máximo 300 caracteres</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-secondary fs-5">Enviar</button>
+                <button type="submit" [disabled]="!contactForm.valid"  class="btn btn-secondary fs-5">Enviar</button>
             </div>
         </form>        
     </section>

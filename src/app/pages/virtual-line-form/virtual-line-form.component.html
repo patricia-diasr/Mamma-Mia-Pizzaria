@@ -1,45 +1,142 @@
 <div class="container-fluid">
     <section class="container about pb-5">
         <h1 class="text-secondary text-center">Entrar na Fila Virtual</h1>
-        <form class="row g-3">
+        <form class="row g-3" [formGroup]="virtualLineForm" (ngSubmit)="onSubmit()">
             <div class="col-12">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Nome">
+                    <input 
+                        type="text"
+                        class="form-control"
+                        id="name" 
+                        placeholder="Nome"
+                        formControlName="name"
+                        [ngClass]="{ 'is-invalid': f['name'].errors && f['name'].touched }"
+                    >
                     <label for="name">Nome</label>
+                    @if (f["name"].errors && f["name"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["name"].errors["required"]) {
+                                <div>O nome é obrigatório</div>
+                            }
+                            @if (f["name"].errors["minlength"]) {
+                                <div>O nome precisa ter no mínimo 8 caracteres</div>
+                            }
+                            @if (f["name"].errors["maxlength"]) {
+                                <div>O nome precisa ter no máximo 40 caracteres</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="E-mail">
-                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Email"
+                        formControlName="email"
+                        [ngClass]="{ 'is-invalid': f['email'].errors && f['email'].touched }"
+                    >
+                    <label for="email">Email</label>
+                    @if (f["email"].errors && f["email"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["email"].errors["required"]) {
+                                <div>O e-mail é obrigatório</div>
+                            }
+                            @if (f["email"].errors["email"]) {
+                                <div>Insira um e-mail válido</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="phone" placeholder="Telefone">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        placeholder="Telefone"
+                        formControlName="phone"
+                        [ngClass]="{ 'is-invalid': f['phone'].errors && f['phone'].touched }"
+                    >
                     <label for="phone">Telefone</label>
+                    @if (f["phone"].errors && f["phone"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["phone"].errors["required"]) {
+                                <div>O telefone é obrigatório</div>
+                            }
+                            @if (f["phone"].errors["pattern"]) {
+                                <div>Insira um telefone válido.</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="peopleNumber" placeholder="Quantidade de Pessoas">
+                    <input 
+                        type="number"
+                        class="form-control"
+                        id="peopleNumber"
+                        placeholder="Quantidade de Pessoas"
+                        formControlName="peopleNumber"
+                        min="1"
+                        max="20"
+                        [ngClass]="{ 'is-invalid': f['peopleNumber'].errors && f['peopleNumber'].touched }"
+                    >
                     <label for="peopleNumber">Quantidade de Pessoas</label>
+                    @if (f["peopleNumber"].errors && f["peopleNumber"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["peopleNumber"].errors["required"]) {
+                                <div>O número de pessoas é obrigatório</div>
+                            }
+                            @if (f["peopleNumber"].errors["invalidRange"]) {
+                                <div>O número de pessoas deve ser um número entre 1 e 20</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="time" aria-label="Seleção de horário da reserva">
+                    <select class="form-select" id="priority" aria-label="Seleção de horário da reserva">
                         <option value="none" selected>Nenhuma</option>
                         <option value="pcd">Pessoa com Deficiência</option>
                         <option value="idoso">Pessoa Idosa</option>
                     </select>
-                    <label for="time">Prioridade</label>
+                    <label for="priority">Prioridade</label>
+                    @if (f["priority"].errors && f["priority"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["priority"].errors["required"]) {
+                                <div>A prioridade é obrigatória</div>
+                            }
+                            @if (f["priority"].errors["pattern"]) {
+                                <div>A prioridade deve ser uma dos disponíveis</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" id="message" style="height: 100px" placeholder="Mensagem"></textarea>
-                    <label for="message">Observações</label>
+                    <textarea
+                        class="form-control"
+                        id="description"
+                        style="height: 100px"
+                        placeholder="Observações"
+                        formControlName="description"
+                        [ngClass]="{ 'is-invalid': f['description'].errors && f['description'].touched }"
+                    ></textarea>
+                    <label for="description">Observações</label>
+                    @if (f["description"].errors && f["description"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["description"].errors["maxlength"]) {
+                                <div>As observações precisam ter no máximo 300 caracteres</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-12">

@@ -7,21 +7,50 @@
 
     <section class="container check-waiting-time pb-5">
         <h2 class="text-secondary text-center">Consultar Tempo de Espera</h2>
-        <form class="row g-3">
+        <form class="row g-3" [formGroup]="checkWaitingTimeForm" (ngSubmit)="onSubmit()">
             <div class="col-md-12">
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="peopleNumber" placeholder="Quantidade de Pessoas">
+                    <input 
+                        type="number"
+                        class="form-control"
+                        id="peopleNumber"
+                        placeholder="Quantidade de Pessoas"
+                        formControlName="peopleNumber"
+                        min="1"
+                        max="20"
+                        [ngClass]="{ 'is-invalid': f['peopleNumber'].errors && f['peopleNumber'].touched }"
+                    >
                     <label for="peopleNumber">Quantidade de Pessoas</label>
+                    @if (f["peopleNumber"].errors && f["peopleNumber"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["peopleNumber"].errors["required"]) {
+                                <div>O número de pessoas é obrigatório</div>
+                            }
+                            @if (f["peopleNumber"].errors["invalidRange"]) {
+                                <div>O número de pessoas deve ser um número entre 1 e 20</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="time" aria-label="Seleção de horário da reserva">
+                    <select class="form-select" id="priority" aria-label="Seleção de horário da reserva">
                         <option value="none" selected>Nenhuma</option>
                         <option value="pcd">Pessoa com Deficiência</option>
                         <option value="idoso">Pessoa Idosa</option>
                     </select>
-                    <label for="time">Prioridade</label>
+                    <label for="priority">Prioridade</label>
+                    @if (f["priority"].errors && f["priority"].touched) {
+                        <div class="invalid-feedback">
+                            @if (f["priority"].errors["required"]) {
+                                <div>A prioridade é obrigatória</div>
+                            }
+                            @if (f["priority"].errors["pattern"]) {
+                                <div>A prioridade deve ser uma dos disponíveis</div>
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-12">
