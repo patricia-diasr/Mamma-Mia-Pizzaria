@@ -1,1 +1,1 @@
-<span class="toast-container bg-primary text-light">{{ toastText }}</span>
+<span *ngIf="toastService.message" class="toast-container bg-primary text-light">{{ toastService.message }}</span>

@@ -1,14 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { ToastService } from '../../services/toast.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-toast',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })
 export class ToastComponent {
-  @Input() toastText!: string;
-
+  constructor(public toastService: ToastService) {}
 
 }

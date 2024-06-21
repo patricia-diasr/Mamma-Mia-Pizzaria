@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
-import { ToastComponent } from '../toast/toast.component';
 import { CommonModule } from '@angular/common';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
     selector: 'app-footer',
     standalone: true,
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.scss',
-    imports: [
-      CommonModule,
-      ToastComponent
-    ]
+    imports: [CommonModule]
 })
 export class FooterComponent {
-  showToast: boolean = false;
+  constructor(private toastService: ToastService) {}
 
   copyText(text: string): void {
     navigator.clipboard.writeText(text)
         .then(() => {
-          this.showToast = true;
-          setTimeout(() => this.showToast = false, 2500);
+          this.toastService.add("Texto copiado");
         })
         .catch(err => console.error('Error copying text: ', err));
   }
