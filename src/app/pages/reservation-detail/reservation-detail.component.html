@@ -6,35 +6,31 @@
                 <tbody>
                     <tr>
                         <th scope="row">Nome:</th>
-                        <td>Lorem Impsum</td>
+                        <td>{{ reservation?.name }}</td>
                     </tr>
                     <tr>
                         <th scope="row">E-mail:</th>
-                        <td>loremimpsum&#64;gmail.com</td>
+                        <td>{{ reservation?.email }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Telefone:</th>
-                        <td>(15) 99999-9999</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">E-mail:</th>
-                        <td>loremimpsum&#64;gmail.com</td>
+                        <td>{{ reservation?.phone }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Data:</th>
-                        <td>07/06/2024</td>
+                        <td>{{ reservation?.date }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Horário:</th>
-                        <td>22:00</td>
+                        <td>{{ reservation?.time }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Quantidade de Pessoas:</th>
-                        <td>5</td>
+                        <td>{{ reservation?.peopleNumber }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Observações:</th>
-                        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, debitis consequuntur voluptas soluta, eum omnis impedit adipisci incidunt nulla esse expedita, iure ex voluptatibus quisquam in nobis pariatur tempore animi.</td>
+                        <td>{{ reservation?.description }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -47,7 +43,7 @@
 
     <section class="container reservation  pb-5" *ngIf="isEditing">
         <h1 class="text-secondary text-center">Editar Reserva</h1>
-        <app-reservation-form></app-reservation-form>
+        <app-reservation-form [reservation]="reservation" (onSubmit)="updateHandler($event)"></app-reservation-form>
     </section>
 
 </div>
@@ -63,7 +59,7 @@
                 <p>Tem certeza de que deseja cancelar sua reserva? Esta ação não pode ser desfeita.</p>
             </div>
             <div class="modal-footer"> 
-                <button type="button" class="btn btn-secondary fs-5">Confirmar Cancelamento</button>
+                <button type="button" class="btn btn-secondary fs-5" data-bs-dismiss="modal" (click)="deleteHandler()">Confirmar Cancelamento</button>
                 <button type="button" class="btn btn-primary fs-5" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>

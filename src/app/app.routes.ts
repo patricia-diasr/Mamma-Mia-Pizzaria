@@ -11,7 +11,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'cardapio', component: MenuComponent },
     { path: 'reserva', component: ReservationComponent },
-    { path: 'reserva/minha-reserva', component: ReservationDetailComponent },
+    { path: 'reserva/minha-reserva/:id', component: ReservationDetailComponent },
     { path: 'fila', component: VirtualLineComponent },
     { path: 'fila/entrar', component: VirtualLineFormComponent },
     { path: 'fila/minha-posicao', component: VirtualLineDetailComponent },
