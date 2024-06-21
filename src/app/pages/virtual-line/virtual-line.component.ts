@@ -37,6 +37,10 @@ export class VirtualLineComponent {
     });
 
     onSubmit() {
+        if (!this.checkWaitingTimeForm.valid) {
+            return;
+        }
+
         this.checkWaitingTimeForm.reset();
         console.log(this.checkWaitingTimeForm.value);
     }

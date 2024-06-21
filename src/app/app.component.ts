@@ -7,25 +7,26 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ToastComponent } from "./components/toast/toast.component";
 
 registerLocaleData(ptBr);
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule, 
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-  ],
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    providers: [
+        { provide: LOCALE_ID, useValue: 'pt' },
+        { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    ],
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        HeaderComponent,
+        FooterComponent,
+        ToastComponent
+    ]
 })
 export class AppComponent {
   title = 'Mamma-Mia-Pizzaria';

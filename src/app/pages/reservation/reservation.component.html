@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <section class="container reservation pb-5">
         <h1 class="text-secondary text-center">Faça sua Reserva</h1>
-        <app-reservation-form></app-reservation-form>
+        <app-reservation-form (onSubmit)="createHandler($event)"></app-reservation-form>
     </section>
 </div>

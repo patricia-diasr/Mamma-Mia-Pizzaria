@@ -60,6 +60,10 @@ export class VirtualLineFormComponent {
   });
 
   onSubmit() {
+    if (!this.virtualLineForm.valid) {
+      return;
+    }
+
     this.virtualLineForm.reset();
     console.log(this.virtualLineForm.value);
   }

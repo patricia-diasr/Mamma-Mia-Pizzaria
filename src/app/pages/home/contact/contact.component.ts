@@ -52,6 +52,10 @@ export class ContactComponent {
   });
 
   onSubmit() {
+    if (!this.contactForm.valid) {
+      return;
+    }
+
     this.contactForm.reset();
     console.log(this.contactForm.value);
   }

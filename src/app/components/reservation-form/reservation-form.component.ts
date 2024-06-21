@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { ValidateDate } from '../../utils/ValidateDate';
 import { ValidatePeopleNumber } from '../../utils/ValidatePeopleNumber';
 import { CommonModule } from '@angular/common';
+import { Reservation } from '../../interfaces/Reservation';
 
 @Component({
   selector: 'app-reservation-form',
@@ -15,6 +16,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './reservation-form.component.scss'
 })
 export class ReservationFormComponent {
+  @Output() onSubmit = new EventEmitter<Reservation>();
+
   tomorrow: string = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split('T')[0];
 
   reservationForm = new FormGroup({
@@ -69,9 +72,23 @@ export class ReservationFormComponent {
     ),
   });
 
-  onSubmit() {
+  submit(): void {
+    if (!this.reservationForm.valid) {
+      return;
+    }
+
+    const reservation: Reservation = {
+      name: this.f['name'].value!,
+      email: this.f['email'].value!,
+      phone: this.f['phone'].value!,
+      date: this.f['date'].value!,
+      time: this.f['time'].value!,
+      peopleNumber: Number(this.f['peopleNumber'].value!),
+      description: this.f['description'].value || ''
+    };
+  
+    this.onSubmit.emit(reservation);
     this.reservationForm.reset();
-    console.log(this.reservationForm.value);
   }
 
   get f(): { [key: string]: AbstractControl } {

@@ -6,5 +6,5 @@ export interface Reservation {
     peopleNumber: number;
     date: string;
     time: string;
-    description: string;
+    description?: string;
 }
