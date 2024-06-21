@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-secondary fs-5">Enviar</button>
+                <button type="submit" [disabled]="!virtualLineForm.valid" class="btn btn-secondary fs-5">Enviar</button>
             </div>
         </form>   
     </section>

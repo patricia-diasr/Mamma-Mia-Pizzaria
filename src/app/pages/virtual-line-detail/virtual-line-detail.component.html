@@ -36,7 +36,7 @@
             <button type="submit" class="btn btn-secondary fs-5 me-3" data-bs-toggle="modal" data-bs-target="#modalStepOutLine">Sair da Fila</button>
         </div>
     </section>
-    <app-waiting-time [showCallToAction]="false"></app-waiting-time>
+    <app-waiting-time [showCallToAction]="false" [waitingTime]="waitingTime"></app-waiting-time>
 </div>
 
 <div class="modal fade" id="modalStepOutLine" tabindex="-1" aria-labelledby="modalStepOutLine" aria-hidden="true">
@@ -50,7 +50,7 @@
                 <p>Tem certeza de que deseja sair da fila? Esta ação não pode ser desfeita.</p>
             </div>
             <div class="modal-footer"> 
-                <button type="button" class="btn btn-secondary fs-5">Sair da Fila</button>
+                <button type="button" class="btn btn-secondary fs-5" data-bs-dismiss="modal" (click)="deleteHandler()">Sair da Fila</button>
                 <button type="button" class="btn btn-primary fs-5" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>

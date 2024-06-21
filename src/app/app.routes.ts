@@ -14,6 +14,6 @@ export const routes: Routes = [
     { path: 'reserva/minha-reserva/:id', component: ReservationDetailComponent },
     { path: 'fila', component: VirtualLineComponent },
     { path: 'fila/entrar', component: VirtualLineFormComponent },
-    { path: 'fila/minha-posicao', component: VirtualLineDetailComponent },
+    { path: 'fila/minha-posicao/:id', component: VirtualLineDetailComponent },
     { path: '**', redirectTo: 'home' }
 ];

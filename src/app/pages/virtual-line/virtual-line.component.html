@@ -54,12 +54,12 @@
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-secondary fs-5">Consultar</button>
+                <button type="submit" [disabled]="!checkWaitingTimeForm.valid" class="btn btn-secondary fs-5">Consultar</button>
             </div>
         </form>   
     </section>
 
-    <section *ngIf="showWaitingTime" class="container check-waiting-time pb-5">
-        <app-waiting-time [showCallToAction]="true"></app-waiting-time>
+    <section *ngIf="waitingTime" class="container check-waiting-time pb-5">
+        <app-waiting-time [showCallToAction]="true" [waitingTime]="waitingTime"></app-waiting-time>
     </section>
 </div>

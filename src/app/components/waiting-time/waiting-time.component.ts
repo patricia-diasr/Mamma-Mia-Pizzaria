@@ -16,4 +16,5 @@ import { CommonModule } from '@angular/common';
 })
 export class WaitingTimeComponent {
   @Input() showCallToAction: boolean = false;
+  @Input() waitingTime!: number;
 }

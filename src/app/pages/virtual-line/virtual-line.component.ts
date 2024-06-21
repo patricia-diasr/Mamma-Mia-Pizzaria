@@ -3,6 +3,7 @@ import { WaitingTimeComponent } from "../../components/waiting-time/waiting-time
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ValidatePeopleNumber } from '../../utils/ValidatePeopleNumber';
+import { VirtualLineService } from '../../services/virtual-line.service';
 
 
 @Component({
@@ -17,7 +18,9 @@ import { ValidatePeopleNumber } from '../../utils/ValidatePeopleNumber';
     ],
 })
 export class VirtualLineComponent {
-    showWaitingTime: Boolean = true;
+    waitingTime: number | undefined;
+
+    constructor(private virtualLineService: VirtualLineService) {}
 
     checkWaitingTimeForm = new FormGroup({
         peopleNumber: new FormControl(
@@ -36,13 +39,19 @@ export class VirtualLineComponent {
         ),
     });
 
-    onSubmit() {
+    async onSubmit() {
         if (!this.checkWaitingTimeForm.valid) {
             return;
         }
 
-        this.checkWaitingTimeForm.reset();
-        console.log(this.checkWaitingTimeForm.value);
+        const peopleNumber = Number(this.f['peopleNumber'].value!);
+        const priority = this.f['priority'].value!;
+
+        const response = await this.virtualLineService.getWaitingTime(peopleNumber, priority);
+
+        if (typeof response === "number") {
+            this.waitingTime = response;
+        }
     }
     
     get f(): { [key: string]: AbstractControl } {

@@ -2,9 +2,9 @@
     <div class="waiting-time-card">
         <h3 class="mb-4">Grupos na sua frente</h3>
         <circle-progress
-            [percent]="90"
+            [percent]="100-(waitingTime * 10)"
             [radius]="100"
-            [subtitle]="'1'"
+            [subtitle]="waitingTime.toString()"
             >
         </circle-progress>
         <a *ngIf="showCallToAction" class="btn bg-secondary text-light fw-bold rounded-pill px-4 py-2 mt-4 text-uppercase" routerLink="/fila/entrar">Entrar na Fila</a>

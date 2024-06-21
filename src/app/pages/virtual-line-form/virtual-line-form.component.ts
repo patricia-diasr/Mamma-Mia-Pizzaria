@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ValidatePeopleNumber } from '../../utils/ValidatePeopleNumber';
+import { VirtualLineService } from '../../services/virtual-line.service';
+import { ToastService } from '../../services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-virtual-line-form',
@@ -14,6 +17,11 @@ import { ValidatePeopleNumber } from '../../utils/ValidatePeopleNumber';
   styleUrl: './virtual-line-form.component.scss'
 })
 export class VirtualLineFormComponent {
+  constructor(
+    private virtualLineService: VirtualLineService,
+    private toastService: ToastService
+  ) {}
+
   virtualLineForm = new FormGroup({
     name: new FormControl(
       '', 
@@ -59,13 +67,23 @@ export class VirtualLineFormComponent {
     ),
   });
 
-  onSubmit() {
+  async onSubmit() {
     if (!this.virtualLineForm.valid) {
       return;
     }
+  
+    const formData = new FormData();
 
+    formData.append("name", this.f['name'].value!);
+    formData.append("email", this.f['email'].value!.email);
+    formData.append("phone", this.f['phone'].value!);
+    formData.append("priority", this.f['priority'].value!);
+    formData.append("peopleNumber", this.f['peopleNumber'].value!);
+
+    const response = await this.virtualLineService.createLinePosition(formData);
+
+    this.toastService.add(response);
     this.virtualLineForm.reset();
-    console.log(this.virtualLineForm.value);
   }
 
   get f(): { [key: string]: AbstractControl } {
