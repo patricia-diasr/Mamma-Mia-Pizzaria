@@ -11,10 +11,14 @@
         text-align: center;
         position: relative;
 
-        img {
-            width: 60%;
+        .image-space {
             position: relative;
             z-index: 2;
+            height: 180px;
+
+            img {
+                height: 100%;
+            }
         }
 
         .half-background {

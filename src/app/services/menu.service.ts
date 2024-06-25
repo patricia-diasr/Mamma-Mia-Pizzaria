@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Item } from '../interfaces/Item';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,132 +10,11 @@ import { Item } from '../interfaces/Item';
 export class MenuService {
 
   private baseApiUrl = environment.baseApiUrl;
-  private apiUrl = `${this.baseApiUrl}/api/menu-items`;
+  private apiUrl = `${this.baseApiUrl}/menu`;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getItems(): Item[] {
-    return [
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "pizza"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "pizza"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "pizza"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "pasta"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "pasta"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "pasta"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "appetizer"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "appetizer"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "appetizer"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "dessert"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "dessert"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "dessert"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "drink"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "drink"
-      },
-      {
-          name: "Nome do Produto",
-          price: 10,
-          description: "Descrição do Produto",
-          image: "../../../../assets/images/pizza-menu-item.png",
-          imageDescription: "Descrição da Imagem",
-          category: "drink"
-      },
-  ];
+  getItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl);
   }
 }
