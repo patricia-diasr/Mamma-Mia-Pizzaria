@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ToastService } from '../../../services/toast.service';
+import { ContactService } from '../../../services/contact.service';
+import { Contact } from '../../../interfaces/Contact';
 
 @Component({
   selector: 'app-contact',
@@ -13,6 +16,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+
+  constructor(private contactService: ContactService, private toastService: ToastService) {}
+
   contactForm = new FormGroup({
     name: new FormControl(
       '', 
@@ -43,21 +49,38 @@ export class ContactComponent {
         Validators.pattern(/^(evento|duvida|sugestao|trabalhe-conosco|outro)$/)
       ]
     ),
-    description: new FormControl(
+    message: new FormControl(
       '', 
       [
+        Validators.required,
         Validators.maxLength(300)
       ]
     ),
   });
 
-  onSubmit() {
+  async onSubmit() {
     if (!this.contactForm.valid) {
       return;
     }
 
-    this.contactForm.reset();
-    console.log(this.contactForm.value);
+    const data: Contact = {
+      "name": this.f['name'].value!,
+      "email": this.f['email'].value!,
+      "phone": this.f['phone'].value!,
+      "subject": this.f['subject'].value!,
+      "message": this.f['message'].value!,
+    }
+
+    this.contactService.createContact(data).subscribe(
+      response => {
+        console.log("Mensagem enviada com sucesso", response);
+        this.toastService.add("Mensagem enviada");
+      },
+      error => {
+        console.error("Erro ao enviar mensagem", error);
+        this.toastService.add("Erro ao enviar mensagem");
+      }
+    );
   }
 
   get f(): { [key: string]: AbstractControl } {

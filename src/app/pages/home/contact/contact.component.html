@@ -107,17 +107,20 @@
                 <div class="form-floating mb-3">
                     <textarea
                         class="form-control"
-                        id="description"
+                        id="message"
                         style="height: 100px"
                         placeholder="Observações"
-                        formControlName="description"
-                        [ngClass]="{ 'is-invalid': f['description'].errors && f['description'].touched }"
+                        formControlName="message"
+                        [ngClass]="{ 'is-invalid': f['message'].errors && f['message'].touched }"
                     ></textarea>
-                    <label for="description">Observações</label>
-                    @if (f["description"].errors && f["description"].touched) {
+                    <label for="message">Mensagem</label>
+                    @if (f["message"].errors && f["message"].touched) {
                         <div class="invalid-feedback">
-                            @if (f["description"].errors["maxlength"]) {
-                                <div>As observações precisam ter no máximo 300 caracteres</div>
+                            @if (f["message"].errors["required"]) {
+                                <div>A mensagem é obrigatórias</div>
+                            }
+                            @if (f["message"].errors["maxlength"]) {
+                                <div>A mensagem precisa ter no máximo 300 caracteres</div>
                             }
                         </div>
                     }
