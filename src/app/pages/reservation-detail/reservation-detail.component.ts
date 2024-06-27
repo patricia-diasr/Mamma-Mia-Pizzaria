@@ -30,11 +30,18 @@ export class ReservationDetailComponent {
       this.reservationId = params.get('id')!;
     });
 
-    this.reservation = this.reservationService.getReservation(this.reservationId);
-
-    if (this.reservation === undefined) {
-      this.router.navigate(['/']);
-    }
+    this.reservationService.getReservation(this.reservationId).subscribe(
+      (item) => {
+        this.reservation = item;
+        if (!this.reservation) {
+          this.router.navigate(['/']);
+        }
+      },
+      (error) => {
+        console.error('Error fetching reservation', error);
+        this.router.navigate(['/']);
+      }
+    );
   }
 
   toggleEdit(): void {
@@ -43,29 +50,34 @@ export class ReservationDetailComponent {
 
 
   async updateHandler(reservation: Reservation) {
-    const formData = new FormData();
+    this.reservationService.updateReservation(this.reservationId, reservation).subscribe(
+      response => {
+        console.log("Reserva atualizada", response);
+        this.toastService.add("Reserva atualizada");
 
-    formData.append("name", reservation.name);
-    formData.append("email", reservation.email);
-    formData.append("phone", reservation.phone);
-    formData.append("date", reservation.date);
-    formData.append("time", reservation.time);
-    formData.append("peopleNumber", reservation.peopleNumber.toString());
-    
-    if (reservation.description) {
-      formData.append("description", reservation.description);
-    }
-
-    const response = await this.reservationService.updateReservation(this.reservationId, formData);
-    this.toastService.add(response);
-
-    this.isEditing = false;
-    this.router.navigate([this.router.url]);
+        this.isEditing = false;
+        this.router.navigate([this.router.url]);
+      },
+      error => {
+        console.error("Erro ao atualizar reserva", error);
+        this.toastService.add("Erro ao atualizar reserva");
+      }
+    );
   }
 
   async deleteHandler() {
-    const response = await this.reservationService.deleteReservation(this.reservationId);
-    this.toastService.add(response);
-    this.router.navigate(['/']);
+    this.reservationService.deleteReservation(this.reservationId).subscribe(
+      response => {
+        console.log("Reserva deletada", response);
+        this.toastService.add("Reserva deletada");
+
+        this.isEditing = false;
+        this.router.navigate(['/']);
+      },
+      error => {
+        console.error("Erro ao deletar reserva", error);
+        this.toastService.add("Erro ao deletar reserva");
+      }
+    );
   }
 }

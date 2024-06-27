@@ -89,13 +89,14 @@ export class ReservationFormComponent {
       name: this.f['name'].value!,
       email: this.f['email'].value!,
       phone: this.f['phone'].value!,
-      date: this.f['date'].value!,
+      date: this.f['date'].value.substring(0, 10),
       time: this.f['time'].value!,
       peopleNumber: Number(this.f['peopleNumber'].value!),
       description: this.f['description'].value || ""
     };
   
     this.onSubmit.emit(reservation);
+    this.reservationForm.reset();
   }
 
   get f(): { [key: string]: AbstractControl } {

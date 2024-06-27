@@ -75,6 +75,7 @@ export class ContactComponent {
       response => {
         console.log("Mensagem enviada com sucesso", response);
         this.toastService.add("Mensagem enviada");
+        this.contactForm.reset();
       },
       error => {
         console.error("Erro ao enviar mensagem", error);

@@ -1,38 +1,32 @@
 import { Injectable } from '@angular/core';
-
 import { Reservation } from '../interfaces/Reservation';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
   private baseApiUrl = environment.baseApiUrl;
-  private apiUrl = `${this.baseApiUrl}/api/reservation`;
+  private apiUrl = `${this.baseApiUrl}/reservation`;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getReservation(reservationId: string): Reservation {
-    return {
-      name: "Lorem Impsum",
-      email: "loremimpsum@gmail.com",
-      phone: "(15) 99999-9999",
-      peopleNumber: 5,
-      date: "07/06/2024",
-      time: "22:00",
-      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, debitis consequuntur voluptas soluta, eum omnis impedit adipisci incidunt nulla esse expedita, iure ex voluptatibus quisquam in nobis pariatur tempore animi.",
-    }
+  createReservation(data: Reservation): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, data);
+  }
+  
+  getReservation(reservationId: string): Observable<Reservation> {
+    return this.http.get<Reservation>(`${this.apiUrl}/${reservationId}`);
   }
 
-  createReservation(formData: FormData): string {
-    return "Reserva cadastrada";
+  updateReservation(reservationId: string, data: Partial<Reservation>): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/${reservationId}`, data);
   }
 
-  updateReservation(reservationId: string, formData: FormData): string {
-    return "Reserva atualizada";
+  deleteReservation(reservationId: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${reservationId}`);
   }
-
-  deleteReservation(reservationId: string): string {
-    return "Reserva deletada";
-  }
+  
 }
