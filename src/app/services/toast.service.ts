@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root",
 })
 export class ToastService {
-  message: string = "";
+    message: string = "";
 
-  constructor() { }
+    constructor() {}
 
-  add(message: string): void {
-    this.message = message;
+    add(message: string): void {
+        this.message = message;
 
-    setTimeout(() => {
-      this.clear();
-    }, 2500);
-  }
+        setTimeout(() => {
+            this.clear();
+        }, 2500);
+    }
 
-  clear(): void {
-    this.message = "";
-  }
+    clear(): void {
+        this.message = "";
+    }
 }

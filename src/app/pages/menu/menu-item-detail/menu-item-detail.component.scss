@@ -42,22 +42,19 @@
 
 @media (max-width: 576px) {
     .card-menu-item {
-    
         .image-container {
-    
             img {
                 width: 50%;
             }
-    
         }
-    
+
         .card-content {
-            padding: .5em;
-    
+            padding: 0.5em;
+
             h3 {
                 font-size: 1.3em;
             }
-    
+
             .price {
                 font-size: 1.2em;
                 color: $tertiary;

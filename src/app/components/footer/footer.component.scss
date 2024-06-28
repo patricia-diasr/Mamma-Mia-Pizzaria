@@ -6,7 +6,7 @@ footer {
 
     ul {
         padding: 0;
-        
+
         li {
             background-color: transparent;
             list-style: none;
@@ -17,7 +17,8 @@ footer {
         font-size: 1.1em;
     }
 
-    a, span {
+    a,
+    span {
         text-decoration: none;
         color: $light;
         font-size: 1em;
@@ -25,27 +26,27 @@ footer {
 
         .bi {
             background: $quaternary;
-            padding: .45em;
-            margin-right: .6em;
+            padding: 0.45em;
+            margin-right: 0.6em;
         }
 
         &:hover .bi {
             background: $primary;
         }
     }
-    
 }
 
 @media (max-width: 576px) {
     footer {
         border-radius: 2em 2em 0 0;
 
-        a, span {
-            font-size: .8em;
+        a,
+        span {
+            font-size: 0.8em;
         }
 
         .bi {
-            margin-right: .1em;
+            margin-right: 0.1em;
         }
     }
 }

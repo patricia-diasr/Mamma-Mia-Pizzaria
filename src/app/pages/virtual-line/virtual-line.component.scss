@@ -3,13 +3,13 @@
 h1 {
     font-size: 3em;
     font-weight: bold;
-    margin: 1.8em 0 .6em 0;
+    margin: 1.8em 0 0.6em 0;
 }
 
 h2 {
     font-size: 3em;
     font-weight: bold;
-    margin: 0 0 .6em 0;
+    margin: 0 0 0.6em 0;
 }
 
 p {
@@ -30,14 +30,14 @@ p {
         width: 100%;
         text-align: center;
     }
-    
+
     a {
         font-size: 1.2em;
         letter-spacing: 0.2em;
         display: flex;
         align-items: center;
         justify-content: center;
-    
+
         &:hover {
             background: $tertiary !important;
         }

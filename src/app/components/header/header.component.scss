@@ -4,7 +4,7 @@ header {
     position: relative;
     height: 95vh;
     overflow: hidden;
-    background: linear-gradient(0deg, rgba(34,35,38,.2) 0%, rgba(34,35,38,1) 85%);
+    background: linear-gradient(0deg, rgba(34, 35, 38, 0.2) 0%, rgba(34, 35, 38, 1) 85%);
 
     .video-background {
         position: absolute;
@@ -26,7 +26,7 @@ header {
         }
 
         .subtitle {
-            letter-spacing: .6em;
+            letter-spacing: 0.6em;
         }
     }
 
@@ -42,7 +42,8 @@ header {
         li {
             font-size: 1.2em;
 
-            a:hover, .active {
+            a:hover,
+            .active {
                 border-bottom: 1px solid $light;
             }
         }
@@ -63,7 +64,7 @@ header {
     }
 
     a {
-        filter: brightness(.8);
+        filter: brightness(0.8);
     }
 
     .active {

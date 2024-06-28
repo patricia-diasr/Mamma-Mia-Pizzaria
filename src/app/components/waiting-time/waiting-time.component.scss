@@ -13,14 +13,14 @@
         width: 100%;
         text-align: center;
     }
-    
+
     a {
         font-size: 1.2em;
         letter-spacing: 0.2em;
         display: flex;
         align-items: center;
         justify-content: center;
-    
+
         &:hover {
             background: $tertiary !important;
         }

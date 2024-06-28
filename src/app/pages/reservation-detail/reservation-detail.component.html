@@ -36,31 +36,73 @@
             </table>
         </div>
         <div class="col-12 mt-3">
-            <button type="submit" class="btn btn-secondary fs-5 me-3 mb-1" (click)="toggleEdit()">Editar</button>
-            <button type="submit" class="btn btn-primary fs-5" data-bs-toggle="modal" data-bs-target="#modalReservationCancel">Cancelar Reserva</button>
+            <button
+                type="submit"
+                class="btn btn-secondary fs-5 me-3 mb-1"
+                (click)="toggleEdit()"
+            >
+                Editar
+            </button>
+            <button
+                type="submit"
+                class="btn btn-primary fs-5"
+                data-bs-toggle="modal"
+                data-bs-target="#modalReservationCancel"
+            >
+                Cancelar Reserva
+            </button>
         </div>
     </section>
 
-    <section class="container reservation  pb-5" *ngIf="isEditing">
+    <section class="container reservation pb-5" *ngIf="isEditing">
         <h1 class="text-secondary text-center">Editar Reserva</h1>
-        <app-reservation-form [reservation]="reservation" (onSubmit)="updateHandler($event)"></app-reservation-form>
+        <app-reservation-form
+            [reservation]="reservation"
+            (onSubmit)="updateHandler($event)"
+        ></app-reservation-form>
     </section>
-
 </div>
 
-<div class="modal fade" id="modalReservationCancel" tabindex="-1" aria-labelledby="modalReservationCancel" aria-hidden="true">
+<div
+    class="modal fade"
+    id="modalReservationCancel"
+    tabindex="-1"
+    aria-labelledby="modalReservationCancel"
+    aria-hidden="true"
+>
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable fs-5">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title fw-bold">Cancelar Reserva</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Fechar"
+                ></button>
             </div>
             <div class="modal-body">
-                <p>Tem certeza de que deseja cancelar sua reserva? Esta ação não pode ser desfeita.</p>
+                <p>
+                    Tem certeza de que deseja cancelar sua reserva? Esta ação não pode ser
+                    desfeita.
+                </p>
             </div>
-            <div class="modal-footer"> 
-                <button type="button" class="btn btn-secondary fs-5" data-bs-dismiss="modal" (click)="deleteHandler()">Confirmar Cancelamento</button>
-                <button type="button" class="btn btn-primary fs-5" data-bs-dismiss="modal">Fechar</button>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary fs-5"
+                    data-bs-dismiss="modal"
+                    (click)="deleteHandler()"
+                >
+                    Confirmar Cancelamento
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-primary fs-5"
+                    data-bs-dismiss="modal"
+                >
+                    Fechar
+                </button>
             </div>
         </div>
     </div>

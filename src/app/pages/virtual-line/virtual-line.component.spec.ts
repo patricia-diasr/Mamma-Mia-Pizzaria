@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { VirtualLineComponent } from './virtual-line.component';
+import { VirtualLineComponent } from "./virtual-line.component";
 
-describe('VirtualLineComponent', () => {
-  let component: VirtualLineComponent;
-  let fixture: ComponentFixture<VirtualLineComponent>;
+describe("VirtualLineComponent", () => {
+    let component: VirtualLineComponent;
+    let fixture: ComponentFixture<VirtualLineComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [VirtualLineComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(VirtualLineComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [VirtualLineComponent],
+        }).compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        fixture = TestBed.createComponent(VirtualLineComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it("should create", () => {
+        expect(component).toBeTruthy();
+    });
 });
