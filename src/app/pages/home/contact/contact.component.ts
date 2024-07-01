@@ -64,8 +64,8 @@ export class ContactComponent {
                 this.contactForm.reset();
             },
             (error) => {
+                this.toastService.add(error.error.message);
                 console.error("Erro ao enviar mensagem", error);
-                this.toastService.add("Erro ao enviar mensagem");
             }
         );
     }

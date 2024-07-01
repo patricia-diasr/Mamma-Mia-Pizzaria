@@ -25,8 +25,8 @@ export class ReservationComponent {
                 this.toastService.add("Reserva realizada");
             },
             (error) => {
+                this.toastService.add(error.error.message);
                 console.error("Erro ao realizar reserva", error);
-                this.toastService.add("Erro ao realizar reserva");
             }
         );
     }

@@ -33,6 +33,9 @@ export class ReservationDetailComponent {
         this.reservationService.getReservation(this.reservationId).subscribe(
             (item) => {
                 this.reservation = item;
+                this.reservation.date = this.reservation.date.substring(0, 10);
+                this.reservation.time = this.reservation.time.substring(0, 5);
+
                 if (!this.reservation) {
                     this.router.navigate(["/"]);
                 }
@@ -60,8 +63,9 @@ export class ReservationDetailComponent {
                     this.router.navigate([this.router.url]);
                 },
                 (error) => {
+                    console.log(JSON.stringify(error))
+                    this.toastService.add(error.error.message);
                     console.error("Erro ao atualizar reserva", error);
-                    this.toastService.add("Erro ao atualizar reserva");
                 }
             );
     }
